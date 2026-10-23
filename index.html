@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100b2e">
+<title>Happy Birthday Fizu 🎂</title>
+<style>
+:root{--pink:#ff69b4;--gold:#ffd166;--violet:#9b7bff;--bg:#09071b}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;overflow-x:hidden;background:radial-gradient(ellipse at top,#21134c 0%,#100b2e 48%,#070613 100%);color:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;text-align:center}
+#stars,.confetti-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;width:2px;height:2px;border-radius:50%;background:white;opacity:.7;animation:twinkle 2.5s infinite alternate}
+@keyframes twinkle{to{opacity:.15;transform:scale(.5)}}
+main{position:relative;z-index:2;width:min(92%,720px);margin:auto;padding:38px 0 55px}
+.pill{display:inline-block;padding:8px 15px;border:1px solid #ffffff38;border-radius:99px;background:#ffffff0d;color:#e8dcff;font-size:.85rem;letter-spacing:1.5px}
+h1{font-size:clamp(2.6rem,10vw,5.6rem);line-height:1.02;margin:22px 0 10px;background:linear-gradient(90deg,#fff,#ff9fd6,#ffe69b);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 35px #ff69b455}
+.subtitle{color:#d9d1f5;font-size:clamp(1rem,3.8vw,1.2rem);margin:0 auto 25px;max-width:500px}
+.balloons{display:flex;justify-content:center;gap:18px;margin:15px 0 8px;height:95px}
+.balloon{width:43px;height:57px;border-radius:50% 50% 46% 46%;position:relative;animation:float 2.6s ease-in-out infinite;box-shadow:inset -7px -5px 10px #0002}
+.balloon:before{content:"";position:absolute;bottom:-7px;left:18px;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:8px solid currentColor}
+.balloon:after{content:"";position:absolute;width:1px;height:32px;background:#ffffff8c;top:63px;left:21px}
+.balloon:nth-child(1){background:#ff65b5;color:#ff65b5;animation-delay:-.5s}.balloon:nth-child(2){background:#ffd166;color:#ffd166;animation-delay:-1.3s}.balloon:nth-child(3){background:#8f7bff;color:#8f7bff}.balloon:nth-child(4){background:#62e6d2;color:#62e6d2;animation-delay:-.9s}.balloon:nth-child(5){background:#ff8a65;color:#ff8a65;animation-delay:-1.7s}
+@keyframes float{50%{transform:translateY(-13px) rotate(4deg)}}
+.card{border:1px solid #ffffff25;border-radius:26px;background:linear-gradient(145deg,#ffffff12,#ffffff06);box-shadow:0 20px 70px #0005;backdrop-filter:blur(12px);padding:22px 16px;margin:20px auto}
+.cake-wrap{position:relative;margin:10px auto 20px;width:230px;height:210px;display:flex;align-items:flex-end;justify-content:center}
+.plate{position:absolute;bottom:12px;width:220px;height:18px;border-radius:50%;background:linear-gradient(#eee,#a7a5c8);box-shadow:0 6px 15px #0006}
+.cake{position:absolute;bottom:28px;width:170px;height:94px;border-radius:13px 13px 20px 20px;background:linear-gradient(90deg,#f48ac0,#ffb6d9 45%,#ef75ad);box-shadow:inset 0 -12px #c84c8d,0 8px 16px #0003}
+.cake:before{content:"";position:absolute;top:-12px;left:0;width:100%;height:25px;border-radius:50%;background:#fff0f6;box-shadow:0 5px #f5a0c8}
+.drip{position:absolute;top:2px;left:20px;width:14px;height:27px;background:#fff0f6;border-radius:0 0 10px 10px;box-shadow:38px 5px #fff0f6,76px -1px #fff0f6,112px 7px #fff0f6}
+.candle{position:absolute;bottom:118px;width:12px;height:48px;border-radius:4px;background:repeating-linear-gradient(45deg,#fff 0 5px,#9b7bff 5px 10px);z-index:2}
+.flame{position:absolute;top:-22px;left:-3px;width:18px;height:23px;background:radial-gradient(ellipse at 50% 65%,#fff8b0 0 20%,#ffb52e 42%,#ff6b35 72%,transparent 75%);border-radius:50% 50% 45% 45%;filter:drop-shadow(0 0 10px #ffb52e);animation:flicker .5s infinite alternate;transform-origin:bottom}
+@keyframes flicker{to{transform:rotate(7deg) scale(.9)}}
+.sprinkle{position:absolute;width:5px;height:5px;border-radius:50%;background:#fff;top:30px;left:30px;box-shadow:30px 17px #ffd166,70px 8px #9b7bff,100px 28px #62e6d2,130px 11px #fff,50px 45px #ffdf85}
+.btn{border:0;border-radius:999px;padding:14px 22px;margin:7px;background:linear-gradient(100deg,#ff69b4,#9b7bff);color:white;font-size:1rem;font-weight:750;cursor:pointer;box-shadow:0 8px 25px #9b7bff45;transition:transform .2s}
+.btn:hover{transform:translateY(-2px) scale(1.02)}.btn.secondary{background:#ffffff12;border:1px solid #ffffff38;box-shadow:none}
+.hidden{display:none!important}
+.message{font-size:1.08rem;line-height:1.8;color:#f3eefe;max-width:540px;margin:8px auto}
+.highlight{color:#ffd166;font-weight:800}
+.gift-stage{height:160px;display:grid;place-items:center}
+.gift{font-size:92px;cursor:pointer;filter:drop-shadow(0 10px 22px #ff69b466);animation:bob 1.7s ease-in-out infinite;transition:transform .3s}
+.gift:hover{transform:scale(1.1) rotate(-5deg)}
+@keyframes bob{50%{translate:0 -10px}}
+footer{color:#a9a0cc;font-size:.82rem;margin-top:24px}
+.pop{position:fixed;z-index:5;pointer-events:none;animation:pop 2.8s ease-out forwards;font-size:22px}
+@keyframes pop{0%{transform:translateY(0) scale(.5) rotate(0);opacity:1}100%{transform:translateY(100vh) scale(1.2) rotate(540deg);opacity:0}}
+#surpriseText{animation:reveal .7s ease-out}
+@keyframes reveal{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+@media(max-width:420px){main{padding-top:28px}.card{padding:18px 12px}.cake-wrap{transform:scale(.9);margin-top:0;margin-bottom:8px}}
+</style>
+</head>
+<body>
+<div id="stars"></div><div class="confetti-layer" id="confetti"></div>
+<main>
+  <div class="pill">✨ A LITTLE SURPRISE JUST FOR YOU ✨</div>
+  <h1>Happy Birthday,<br>Fizu! 🎂</h1>
+  <p class="subtitle">Today is all about celebrating an amazing friend. 💜</p>
+  <div class="balloons" aria-hidden="true"><span class="balloon"></span><span class="balloon"></span><span class="balloon"></span><span class="balloon"></span><span class="balloon"></span></div>
+
+  <section class="card" id="cakeCard">
+    <h2>Make a birthday wish ✨</h2>
+    <div class="cake-wrap" aria-label="Animated birthday cake">
+      <div class="plate"></div><div class="cake"><div class="drip"></div><div class="sprinkle"></div></div>
+      <div class="candle" id="candle"><div class="flame" id="flame"></div></div>
+    </div>
+    <p class="subtitle" id="cakeHint">Tap the button to blow out the candle!</p>
+    <button class="btn" id="blowBtn">🕯️ Blow Out Candle</button>
+  </section>
+
+  <section class="card">
+    <h2>🎁 One little gift for you</h2>
+    <p class="subtitle">There's a message waiting inside…</p>
+    <div class="gift-stage"><div class="gift" id="gift" role="button" tabindex="0" aria-label="Open surprise gift">🎁</div></div>
+    <button class="btn" id="openGift">Open Your Surprise 💌</button>
+    <div id="surpriseText" class="hidden">
+      <h2>🎉 For you, Fizu! 🎉</h2>
+      <p class="message">Happy Birthday, Fizu! 🥳❤️<br>
+      May your life be filled with happiness, success, good health, and unforgettable memories. May your dreams come true and may you always have reasons to smile. 🌟<br>
+      I'm really glad to have you as a friend. Keep smiling, keep shining, and never stop being your wonderful self! 💖✨<br><br>
+      <span class="highlight">Wishing you the happiest birthday and an awesome year ahead! 🎂🎈</span></p>
+      <div style="font-size:2rem">🎂 🎈 🥳 🎁 💜</div>
+    </div>
+  </section>
+  <button class="btn secondary" id="partyBtn">🎊 More Confetti!</button>
+  <footer>Made with friendship & good vibes 💜</footer>
+</main>
+<script>
+const starRoot=document.getElementById('stars');
+for(let i=0;i<100;i++){const s=document.createElement('i');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';s.style.opacity=(.2+Math.random()*.8);starRoot.appendChild(s)}
+function confetti(n=85){const root=document.getElementById('confetti');const icons=['🎉','✨','💜','🎊','⭐','🎈'];for(let i=0;i<n;i++){const e=document.createElement('span');e.className='pop';e.textContent=icons[Math.floor(Math.random()*icons.length)];e.style.left=Math.random()*100+'vw';e.style.top=(-10-Math.random()*25)+'px';e.style.animationDelay=(Math.random()*.8)+'s';e.style.fontSize=(14+Math.random()*19)+'px';root.appendChild(e);setTimeout(()=>e.remove(),3800)}}
+document.getElementById('blowBtn').addEventListener('click',()=>{document.getElementById('flame').classList.add('hidden');document.getElementById('cakeHint').textContent='Wish sent to the universe! 🌠 May it come true, Fizu!';document.getElementById('blowBtn').textContent='✨ Wish sent!';confetti(55)});
+function openGift(){document.getElementById('gift').textContent='💝';document.getElementById('surpriseText').classList.remove('hidden');document.getElementById('openGift').classList.add('hidden');confetti(120);document.getElementById('surpriseText').scrollIntoView({behavior:'smooth',block:'center'})}
+document.getElementById('openGift').addEventListener('click',openGift);document.getElementById('gift').addEventListener('click',openGift);document.getElementById('gift').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openGift()}});
+document.getElementById('partyBtn').addEventListener('click',()=>confetti(120));
+setTimeout(()=>confetti(22),600);
+</script>
+</body>
+</html>
